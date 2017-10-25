@@ -26,11 +26,15 @@
             <th>Item Name</th>
             <th>Item SKU</th>
             <th>Item Price</th>
+            <th>Item Buy Amount</th>
+            <th>Item Discount Price</th>
         </tr>
         <tr v-for="item in items" :id="item.sku">
             <td class="item">{{item.item}}</td>
             <td class="sku">{{item.sku}}</td>
             <td class="price">{{item.price}}</td>
+            <td>{{item.buyAmount}}</td>
+            <td>{{item.discountPrice}}</td>
         </tr>
     </table>
 </div>

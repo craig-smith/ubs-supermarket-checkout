@@ -60,7 +60,7 @@ public class ItemSLOBean implements ItemSLO {
 
     @Override
     public void save(Item item) {
-        DTOTransformer dtoTransformer = dtoTransformerFactory.getTransformer(item);
+        DTOTransformer<ItemEntity, Item> dtoTransformer = dtoTransformerFactory.getTransformer(item);
         ItemEntity itemEntity = dtoTransformer.transform(item);
 
         itemRepository.save(itemEntity);
@@ -70,7 +70,7 @@ public class ItemSLOBean implements ItemSLO {
     @Override
     public void update(Item item) {
         ItemEntity itemEntity = itemRepository.findBySku(item.getSku());
-        ItemUpdater updater = itemUpdaterFactory.getUpdater(itemEntity, item);
+        ItemUpdater<ItemEntity, Item> updater = itemUpdaterFactory.getUpdater(itemEntity, item);
         updater.updateItemEntity(itemEntity, item);
 
         itemRepository.save(itemEntity);

@@ -5,5 +5,5 @@ import com.craig.ubs.supermarket.core.service.iface.Item;
 
 public interface ItemEntityUpdaterFactory {
 
-    ItemUpdater getUpdater(ItemEntity entity, Item item);
+    ItemUpdater<ItemEntity, Item> getUpdater(ItemEntity entity, Item item);
 }
